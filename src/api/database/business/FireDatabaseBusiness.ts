@@ -1,6 +1,5 @@
 import Business from "../../../classes/Business";
-import Customer from "../../../classes/Customer";
-import IpRange from "../../../classes/IpRange";
+
 import User from "../../../classes/User";
 import utils from "../../../libs/utils/utils";
 import App from "../../App";
@@ -13,113 +12,7 @@ class FireDatabaseBusiness {
 		this.app = app;
 		this.allBusiness = {};
 	}
-	removeIpRange(business: Business, ipRange: IpRange) {
-		const that = this;
-		const save = async () => {
-			const res = await that.app
-				.database()
-				.collection("business")
-				.doc(business.id)
-				.collection("ipranges")
-				.doc(ipRange.id)
-				.delete()
-				.then((res) => true)
-				.catch((err) => {
-					console.log(err);
-					return null;
-				});
-			if (res) {
-				return true;
-			}
-			return null;
-		};
-		return new Promise<boolean>(async (resolve, reject) => {
-			try {
-				const resSave = await save();
-				if (!resSave) {
-					reject("fail to save data on ipRange colletion");
-					return;
-				}
-				resolve(true);
-			} catch (error) {
-				reject(null);
-			}
-		});
-	}
-	saveIpRange(business: Business, ipRange: IpRange) {
-		const that = this;
-		const save = async () => {
-			ipRange.creationDate = utils.dates.dateNowUnix();
-			let ip = ipRange.ip.split(".");
-			ip.pop();
-			ip.push("0");
-			ipRange.ip = ip.join(".");
-			const hasRange = await that.app
-				.database()
-				.collection("business")
-				.doc(business.id)
-				.collection("ipranges")
-				.where("ip", "==", ipRange.ip)
-				.get();
 
-			if (hasRange.empty) {
-				const res = await that.app
-					.database()
-					.collection("business")
-					.doc(business.id)
-					.collection("ipranges")
-					.add(ipRange.exportObject())
-					.then((res) => res)
-					.catch(() => null);
-				if (res) {
-					ipRange.id = res.id;
-					return true;
-				}
-			}
-
-			return null;
-		};
-		return new Promise<boolean>(async (resolve, reject) => {
-			try {
-				const resSave = await save();
-				if (!resSave) {
-					reject("fail to save data on ipRange colletion");
-					return;
-				}
-				resolve(true);
-			} catch (error) {
-				reject(null);
-			}
-		});
-	}
-	getIpRangesListener(
-		business: Business,
-		callback: (res: IpRange[]) => void
-	) {
-		const that = this;
-		const db = that.app.database();
-		const unsubs = db
-			.collection("business")
-			.doc(business.id)
-			.collection("ipranges")
-			.onSnapshot(
-				(result) => {
-					if (!result.empty) {
-						const arr: IpRange[] = [];
-						result.forEach((doc) => {
-							const data: any = doc.data();
-							data.id = doc.id;
-							arr.push(new IpRange(data));
-						});
-						callback(arr);
-						return;
-					}
-					callback([]);
-				},
-				(err) => callback([])
-			);
-		return unsubs;
-	}
 	getBusinessByAt(atBusiness: string) {
 		const that = this;
 		const db = this.app.database();

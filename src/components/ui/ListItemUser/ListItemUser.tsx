@@ -7,7 +7,7 @@ import {
 	Divider,
 } from "@mui/material";
 import React from "react";
-import Customer from "../../../classes/Customer";
+
 import utils from "../../../libs/utils/utils";
 
 type ListItemUserProps = {
@@ -67,19 +67,3 @@ const ListItemUser: React.FC<ListItemUserProps> = ({
 	);
 };
 export default ListItemUser;
-
-type ListItemUserCustomerProps = {
-	data: Customer;
-};
-export const ListItemUserCustomer: React.FC<ListItemUserCustomerProps> = ({
-	data,
-}) => {
-	return (
-		<ListItemUser
-			title={data.name}
-			subTitle={data.ip}
-			avatarUri={data.name[0]}
-			description={`User:${data.appUser}, Password:${data.appPass}`}
-		/>
-	);
-};

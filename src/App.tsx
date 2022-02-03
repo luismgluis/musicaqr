@@ -7,7 +7,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/pages/Login/Login";
 import Home from "./components/pages/Home/Home";
 import CustomAlert from "./components/ui/Alert/CustomAlert";
-import Wifi from "./components/pages/Wifi/Wifi";
 
 type RoutesType = {
 	path: string;
@@ -18,26 +17,6 @@ type RoutesType = {
 function App() {
 	const routes = useMemo(() => {
 		const arr: RoutesType[] = [
-			{
-				path: "/wifi",
-				element: <Wifi />,
-				private: false,
-			},
-			{
-				path: "/wifi/:business/:idCard",
-				element: <Wifi />,
-				private: false,
-			},
-			// {
-			//   path: "/customers",
-			//   element: <CustomersScreen />,
-			//   private: false,
-			// },
-			// {
-			//   path: "/business",
-			//   element: <BusinessScreen />,
-			//   private: true,
-			// },
 			{
 				path: "/home",
 				element: <Home />,
