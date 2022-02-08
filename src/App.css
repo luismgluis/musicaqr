@@ -39,3 +39,47 @@
     transform: rotate(360deg);
   }
 }
+/* leda */
+/* empieza nav */
+.songNav {
+  background: #282c34;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(63, 62, 62);
+  padding: 10px;
+}
+
+/* termina nav */
+.songContainer {
+  color: grey;
+  padding: 20px;
+  background-color: #282c34;
+  border-bottom: 1px solid rgb(63, 62, 62);
+}
+
+.songContainer,
+.songContainer--artistInfo {
+  display: flex;
+
+  /* border: 2px solid red; */
+  justify-content: space-between;
+}
+.songContainer--artistInfo {
+  flex-grow: 2;
+}
+
+.songContainer--artistInfoMain {
+  /* border: 2px solid green; */
+}
+.songContainer--song,
+.songContainer--artist,
+.songContainer--album {
+  margin: 10px;
+}
+
+.songContainer--albumCover {
+  width: 50px;
+  height: 50px;
+}
+
+/* leda */

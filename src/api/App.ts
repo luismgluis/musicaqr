@@ -5,7 +5,6 @@ import "firebase/firestore";
 import "firebase/functions";
 import "firebase/storage";
 
-import firebaseConfig from "../firebaseConfig";
 import Database from "./database/Database";
 import User from "../classes/User";
 import utils from "../libs/utils/utils";
@@ -166,3 +165,6 @@ class App {
   }
 }
 export default App;
+function firebaseConfig(firebaseConfig: any): firebase.app.App | null {
+  throw new Error("Function not implemented.");
+}
