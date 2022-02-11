@@ -1,4 +1,5 @@
 import data from "../../../data/data";
+import BusinessCard from "../../ui/BusinessCard/BusinessCard";
 import SongNav from "../../ui/NavBar/SongNav";
 
 import SongCard from "../../ui/SongCard/SongCard";
@@ -16,6 +17,9 @@ const Login: React.FC<LoginProps> = (props) => {
     <>
       <section>
         <SongNav />
+      </section>
+      <section>
+        <BusinessCard />
       </section>
       <section>{cardItem}</section>
     </>

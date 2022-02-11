@@ -40,12 +40,15 @@
   }
 }
 /* leda */
+body {
+  font-family: "Roboto", sans-serif;
+}
 /* empieza nav */
 .songNav {
-  background: #282c34;
+  background: #030303;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid rgb(63, 62, 62);
+  border-bottom: 1px solid #282c34;
   padding: 10px;
 }
 
@@ -53,8 +56,8 @@
 .songContainer {
   color: grey;
   padding: 20px;
-  background-color: #282c34;
-  border-bottom: 1px solid rgb(63, 62, 62);
+  background-color: #030303;
+  border-bottom: 1px solid #282c34;
 }
 
 .songContainer,
@@ -74,12 +77,37 @@
 .songContainer--song,
 .songContainer--artist,
 .songContainer--album {
-  margin: 10px;
+  margin: 10px 5px;
+  line-height: 17px;
+  font-size: 16px;
+  color: #aaa;
+}
+
+.songContainer--time {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #aaa;
+}
+
+.songContainer--song {
+  font-weight: 500;
+  color: #fff;
+}
+.songContainer--artist,
+.songContainer--album {
+  font-weight: 400;
 }
 
 .songContainer--albumCover {
   width: 50px;
   height: 50px;
+  margin-right: 10px;
+}
+/* businessCard */
+.businessName {
+  text-align: center;
+  line-height: 17px;
+  font-size: 16px;
 }
 
 /* leda */

@@ -1,11 +1,11 @@
-export default [
+const data = [
   {
     albumCover:
       "https://cdn.smehost.net/michaeljacksoncom-uslegacyprod/wp-content/uploads/2016/03/offthewall_original1.jpg",
     album: "Off the Wall",
     artist: "Michael Jackson",
     song: "Rock with You",
-    songLength: "3:38",
+    songLength: 300,
   },
   {
     albumCover:
@@ -13,7 +13,7 @@ export default [
     album: "Amor y Control",
     artist: "Rubén Blades",
     song: "Amor y Control",
-    songLength: "5:52",
+    songLength: 301,
   },
   {
     albumCover:
@@ -21,7 +21,7 @@ export default [
     album: "Listen Up!",
     artist: "Shakira",
     song: "Waka Waka",
-    songLength: "3:24",
+    songLength: 302,
   },
   {
     albumCover:
@@ -29,7 +29,7 @@ export default [
     album: "Pin Pan Pon",
     artist: "XYZ",
     song: "Pin",
-    songLength: "3:29",
+    songLength: 310,
   },
   {
     albumCover:
@@ -37,14 +37,32 @@ export default [
     album: "Do It Your Way!",
     artist: "Maiah",
     song: "Do it",
-    songLength: "4:24",
+    songLength: 320,
   },
   {
     albumCover:
       "https://los40.com/los40/imagenes/2017/11/28/album/1511885438_220718_1512040503_album_normal.jpg",
     album: "Mis Planes Son Amarte",
     artist: "Juanes",
-    song: "Mis Planes",
-    songLength: "3:24",
+    song: "Mis Planes Son Amarte",
+    songLength: 305,
+  },
+  {
+    albumCover:
+      "https://www.lahiguera.net/musicalia/artistas/pablo_alboran/disco/10829/pablo_alboran_vertigo-portada.jpg",
+    album: "Vertigo",
+    artist: "Pablo Alborán",
+    song: "Si hubieras Querido",
+    songLength: 299,
+  },
+  {
+    albumCover:
+      "https://www.lahiguera.net/musicalia/artistas/ruth_lorenzo/disco/8613/ruth_lorenzo_loveaholic-portada.jpg",
+    album: "Loveaholic",
+    artist: "Ruth Lorenzo",
+    song: "Bring Back The New",
+    songLength: 289,
   },
 ];
+
+export default data;
