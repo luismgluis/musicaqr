@@ -1,0 +1,58 @@
+[
+  {
+    "action": "navigate"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "inputUserLogin",
+    "domElement": "#username"
+  },
+  {
+    "action": "inputPasswordLogin",
+    "domElement": "#password"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector(\".login-sub input[name='Submit']\")"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return showPage('wifi')"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#ssid_name_sub')"
+  },
+
+  {
+    "action": "getCurrentWifiPassword",
+    "script": "return document.querySelector('#per_key')"
+  },
+  {
+    "action": "setNewWifiName",
+    "script": "return document.querySelector('#ssid_name_sub')"
+  },
+  {
+    "action": "setNewWifiPassword",
+    "script": "return document.querySelector('#per_key')"
+  },
+  {
+    "action": "click",
+    "script": "return XDoSubmit()"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "awaitRemove",
+    "script": "return document.querySelector('#waittest')"
+  }
+]
