@@ -1,0 +1,82 @@
+[
+  {
+    "action": "navigate"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "inputUserLogin",
+    "domElement": "#username"
+  },
+  {
+    "action": "inputPasswordLogin",
+    "domElement": "#password"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector('#loginBtn')"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#nav')"
+  },
+
+  {
+    "action": "click",
+    "script": "return document.querySelectorAll('#nav li')[2]"
+  },
+  {
+    "action": "changeFrame",
+    "script": "return document.querySelector('#contentIframe')"
+  },
+  {
+    "action": "setNewWifiName",
+    "script": "return document.getElementsByName('ssid')[0]"
+  },
+  {
+    "action": "click",
+    "script": "return document.getElementsByName('save')[0]"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "changeFrame",
+    "script": "null"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelectorAll('#side li li')"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "changeFrame",
+    "script": "return document.querySelector('#contentIframe')"
+  },
+  {
+    "action": "setNewWifiPassword",
+    "script": "return document.querySelector('#wpapsk')"
+  },
+  {
+    "action": "click",
+    "script": "return document.getElementsByName('save')[0]"
+  },
+  {
+    "action": "await"
+  }
+]

@@ -4,7 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/musicaqrNodeServer/node_modules
+/musicaqrNodeServer/config
+/musicaqrNodeServer/test
 # testing
 /coverage
 

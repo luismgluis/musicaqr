@@ -1,0 +1,69 @@
+[
+  {
+    "action": "navigate"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "inputUserLogin",
+    "domElement": "#txt_Username"
+  },
+  {
+    "action": "inputPasswordLogin",
+    "domElement": "#txt_Password"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector(\".loginbutton\")"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#Internet')"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector('#addconfig')"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#wlanconfig')"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector('#wlanconfig')"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#wlSsid')"
+  },
+  {
+    "action": "getCurrentWifiPassword",
+    "script": "return document.querySelector('#wlWpaPsk')"
+  },
+  {
+    "action": "setNewWifiName",
+    "script": "return document.querySelector('#ssid_name_sub')"
+  },
+  {
+    "action": "setNewWifiPassword",
+    "script": "return document.querySelector('#wlWpaPsk')"
+  },
+  {
+    "action": "click",
+    "script": "return ApplySubmit()"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "awaitRemove",
+    "script": "return document.querySelector('#waittest')"
+  }
+]

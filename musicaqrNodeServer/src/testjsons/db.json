@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "name": "String",
+      "phoneNumber": "Number",
+      "idInstitution": "String",
+      "locationsHistory": [
+        {
+          "lat": "Number",
+          "lng": "Number",
+          "comment": "String"
+        }
+      ],
+      "chats": [
+        {
+          "idChat": {
+            "creationDate": "Number"
+          }
+        }
+      ]
+    }
+  ],
+  "Chats": [
+    {
+      "chatTitle": "String",
+      "description": "String",
+      "members": [
+        {
+          "idUser": {
+            "creationDate": "Number"
+          }
+        }
+      ],
+      "msjs": [
+        {
+          "text": "String",
+          "hasFile": "Boolean",
+          "fileUrl": "String"
+        }
+      ]
+    }
+  ],
+  "intitution": [
+    {
+      "name": "String",
+      "address": "String",
+      "phoneNumber": "Number"
+    }
+  ]
+}

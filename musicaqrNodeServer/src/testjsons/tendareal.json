@@ -1,0 +1,55 @@
+[
+  {
+    "action": "navigate"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "inputPasswordLogin",
+    "domElement": "#login-password"
+  },
+  {
+    "action": "await"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector('#save')"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#sub-menu')"
+  },
+
+  {
+    "action": "click",
+    "script": "return document.querySelectorAll('#sub-menu li')[2]"
+  },
+  {
+    "action": "await",
+    "script": "return document.querySelector('#iframe')"
+  },
+  {
+    "action": "getCurrentWifiPassword",
+    "script": "return document.querySelector('#wifiPwd')"
+  },
+  {
+    "action": "setNewWifiName",
+    "script": "return document.querySelector('#wifiSSID')"
+  },
+  {
+    "action": "setNewWifiPassword",
+    "script": "return document.querySelector('#wifiPwd')"
+  },
+  {
+    "action": "setNewWifiPassword",
+    "script": "return document.querySelector('#wpa2PersonalPwd_5g')"
+  },
+  {
+    "action": "click",
+    "script": "return document.querySelector('#submit')"
+  },
+  {
+    "action": "await"
+  }
+]
