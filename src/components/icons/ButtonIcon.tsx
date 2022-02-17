@@ -6,7 +6,7 @@ type ButtonIconProps = {
 
 export default function ButtonIcon({ icon }: ButtonIconProps) {
   console.log(icon);
-  return <button>{icon}</button>;
+  return <button className="buttonIcon">{icon}</button>;
 }
 
 /* leda */

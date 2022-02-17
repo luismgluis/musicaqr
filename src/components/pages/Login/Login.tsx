@@ -1,6 +1,7 @@
 import data from "../../../data/data";
 import BusinessCard from "../../ui/BusinessCard/BusinessCard";
 import SongNav from "../../ui/NavBar/SongNav";
+import SongPlayer from "../../ui/NavBar/SongPlayer/SongPlayer";
 
 import SongCard from "../../ui/SongCard/SongCard";
 type LoginProps = {
@@ -22,6 +23,7 @@ const Login: React.FC<LoginProps> = (props) => {
         <BusinessCard />
       </section>
       <section>{cardItem}</section>
+      <SongPlayer />
     </>
   );
 };

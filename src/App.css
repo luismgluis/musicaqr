@@ -39,6 +39,24 @@
     transform: rotate(360deg);
   }
 }
+.buttonIcon {
+  background: #030303;
+  color: #fff;
+  border: 0px;
+}
+.buttonIconV2 {
+  background: #202020;
+  color: #fff;
+  border: 0px;
+  transform: scale(1.2);
+  margin: 5px;
+}
+.buttonIconV3 {
+  background: #202020;
+  border: 0px;
+  transform: scale(1.8);
+  margin: 5px;
+}
 /* leda */
 body {
   font-family: "Roboto", sans-serif;
@@ -110,4 +128,47 @@ body {
   font-size: 16px;
 }
 
+/* empieza player */
+.playerContainer {
+  background: #202020;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #282c34;
+  padding: 5px;
+}
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  border: 0;
+}
+.player--SkipPrevious,
+.player--PlayArrow,
+.player--SkipNext {
+  margin: 5px;
+  background: #202020;
+  color: #fff;
+  border: 0;
+  height: 100px;
+}
+.playerSong {
+  color: #fff;
+  margin: 10px 5px;
+  line-height: 17px;
+  font-size: 16px;
+  color: #aaa;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.playerSong--song,
+.playerSong--artist {
+  margin: 0.2em;
+}
+
+.playerSong--song {
+  font-weight: 500;
+  color: #fff;
+}
 /* leda */
