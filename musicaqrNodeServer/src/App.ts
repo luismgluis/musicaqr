@@ -4,7 +4,6 @@ import FireDatabase from "./database/database";
 import { Builder, Capabilities } from "selenium-webdriver";
 import { Options } from "selenium-webdriver/chrome";
 import Business from "./classes/Business";
-import RouterDevice, { RouterBankLogin } from "./classes/RouterDevice";
 
 const serviceAccount = require("../config/firebaseconfig.json");
 
@@ -46,16 +45,11 @@ class App implements AppType {
 	browserDriver: typeof driver;
 	serial: string;
 	business: Business;
-	deviceRouters: RouterDevice[];
-	routersBankLogins: RouterBankLogin[];
 
 	constructor(serialToken: string) {
 		this.started = false;
 		this._database = null;
 		this._selenium = null;
-
-		this.deviceRouters = [];
-		this.routersBankLogins = [];
 		//----------------------
 		this.serial = serialToken;
 
@@ -82,19 +76,12 @@ class App implements AppType {
 	}
 	initializeListeners() {
 		const that = this;
-		const routersListener = this.api.routers.getRoutersListener((res) => {
-			that.deviceRouters = res;
-		});
-		const routersBankLogin = this.api.routers.bankLoginsListener(
-			that.business,
-			(res) => {
-				that.routersBankLogins = res;
-			}
-		);
+		// const routersListener = this.api.routers.getRoutersListener((res) => {
+		// 	that.deviceRouters = res;
+		// });
 
 		return () => {
-			routersListener(); //close
-			routersBankLogin();
+			// routersListener(); //close
 		};
 	}
 	async start() {
@@ -134,7 +121,7 @@ class App implements AppType {
 			console.log(error);
 		}
 		try {
-			await this.browserDriver.quit()
+			await this.browserDriver.quit();
 			await this.browserDriver.close();
 		} catch (error) {
 			console.log(error);
@@ -144,7 +131,9 @@ class App implements AppType {
 			this.browserDriver = newDriver;
 
 			await newDriver.manage().deleteAllCookies();
-			this.seleniumActions.insertGreenScreen("Hola, No cierres esta ventana att MysoftSolutions")
+			this.seleniumActions.insertGreenScreen(
+				"Hola, No cierres esta ventana att MysoftSolutions"
+			);
 			// await newDriver.get("chrome://settings/clearBrowserData");
 			// await newDriver
 			//   .findElement(By.xpath("//settings-ui"))
