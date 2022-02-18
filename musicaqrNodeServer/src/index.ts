@@ -2,7 +2,7 @@ import App from "./App";
 import * as express from "express";
 
 const TAG = "index";
-let mysoftWifiSerial = "spacoma123";
+let mysoftWifiSerial = "elbardesumadre";
 if (typeof process.env.mysoftWifiSerial !== "undefined") {
 	// mysoftWifiSerial = process.env.mysoftWifiSerial; //WORKKKK
 }

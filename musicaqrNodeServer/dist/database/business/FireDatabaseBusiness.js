@@ -9,102 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const IpRange_1 = require("../../classes/IpRange");
+const Business_1 = require("../../classes/Business");
 const utils_1 = require("../../libs/utils/utils");
-const Business_1 = require("../../types/Business");
 const TAG = "FIRE DATABASE USER";
 class FireDatabaseBusiness {
     constructor(app) {
         this.app = app;
         this.allBusiness = {};
-    }
-    removeIpRange(business, ipRange) {
-        const that = this;
-        const save = () => __awaiter(this, void 0, void 0, function* () {
-            const res = yield that.app
-                .database()
-                .collection("business")
-                .doc(business.id)
-                .collection("ipranges")
-                .doc(ipRange.id)
-                .delete()
-                .then((res) => true)
-                .catch((err) => {
-                console.log(err);
-                return null;
-            });
-            if (res) {
-                return true;
-            }
-            return null;
-        });
-        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            try {
-                const resSave = yield save();
-                if (!resSave) {
-                    reject("fail to save data on ipRange colletion");
-                    return;
-                }
-                resolve(true);
-            }
-            catch (error) {
-                reject(null);
-            }
-        }));
-    }
-    saveIpRange(business, ipRange) {
-        const that = this;
-        const save = () => __awaiter(this, void 0, void 0, function* () {
-            ipRange.creationDate = utils_1.default.dates.dateNowUnix();
-            const res = yield that.app
-                .database()
-                .collection("business")
-                .doc(business.id)
-                .collection("ipranges")
-                .add(ipRange.exportObject())
-                .then((res) => res)
-                .catch(() => null);
-            if (res) {
-                ipRange.id = res.id;
-                return true;
-            }
-            return null;
-        });
-        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            try {
-                const resSave = yield save();
-                if (!resSave) {
-                    reject("fail to save data on ipRange colletion");
-                    return;
-                }
-                resolve(true);
-            }
-            catch (error) {
-                reject(null);
-            }
-        }));
-    }
-    getIpRangesListener(business, callback) {
-        const that = this;
-        const db = that.app.database();
-        const unsubs = db
-            .collection("business")
-            .doc(business.id)
-            .collection("ipranges")
-            .onSnapshot((result) => {
-            if (!result.empty) {
-                const arr = [];
-                result.forEach((doc) => {
-                    const data = doc.data();
-                    data.id = doc.id;
-                    arr.push(new IpRange_1.default(data));
-                });
-                callback(arr);
-                return;
-            }
-            callback([]);
-        }, (err) => callback([]));
-        return unsubs;
     }
     getBusinessBySerial(serial) {
         return __awaiter(this, void 0, void 0, function* () {

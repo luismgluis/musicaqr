@@ -41,8 +41,6 @@ class App {
         this.started = false;
         this._database = null;
         this._selenium = null;
-        this.deviceRouters = [];
-        this.routersBankLogins = [];
         //----------------------
         this.serial = serialToken;
         // ---------------------
@@ -67,15 +65,11 @@ class App {
     }
     initializeListeners() {
         const that = this;
-        const routersListener = this.api.routers.getRoutersListener((res) => {
-            that.deviceRouters = res;
-        });
-        const routersBankLogin = this.api.routers.bankLoginsListener(that.business, (res) => {
-            that.routersBankLogins = res;
-        });
+        // const routersListener = this.api.routers.getRoutersListener((res) => {
+        // 	that.deviceRouters = res;
+        // });
         return () => {
-            routersListener(); //close
-            routersBankLogin();
+            // routersListener(); //close
         };
     }
     start() {
@@ -87,7 +81,7 @@ class App {
                 // admin.initializeApp();
                 that.fireApp = admin.initializeApp({
                     credential: admin.credential.cert(serviceAccount),
-                }, "accessa");
+                }, "musicaqr");
                 that._database = new database_1.default(that);
                 that._selenium = new seleniumActions_1.default(that);
                 //--post initialize
@@ -125,14 +119,6 @@ class App {
                 this.browserDriver = newDriver;
                 yield newDriver.manage().deleteAllCookies();
                 this.seleniumActions.insertGreenScreen("Hola, No cierres esta ventana att MysoftSolutions");
-                // await newDriver.get("chrome://settings/clearBrowserData");
-                // await newDriver
-                //   .findElement(By.xpath("//settings-ui"))
-                //   .sendKeys("", Key.ENTER);
-                // await this.selenium.execute(
-                //   "click",
-                //   "return document.querySelector('#clearBrowsingDataConfirm')"
-                // );
             }
             catch (error) {
                 console.log(error);

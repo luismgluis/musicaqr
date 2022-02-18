@@ -94,7 +94,7 @@ class App implements AppType {
 				{
 					credential: admin.credential.cert(<any>serviceAccount),
 				},
-				"accessa"
+				"musicaqr"
 			);
 			that._database = new FireDatabase(that);
 			that._selenium = new SeleniumActions(that);
@@ -134,14 +134,6 @@ class App implements AppType {
 			this.seleniumActions.insertGreenScreen(
 				"Hola, No cierres esta ventana att MysoftSolutions"
 			);
-			// await newDriver.get("chrome://settings/clearBrowserData");
-			// await newDriver
-			//   .findElement(By.xpath("//settings-ui"))
-			//   .sendKeys("", Key.ENTER);
-			// await this.selenium.execute(
-			//   "click",
-			//   "return document.querySelector('#clearBrowsingDataConfirm')"
-			// );
 		} catch (error) {
 			console.log(error);
 		}
