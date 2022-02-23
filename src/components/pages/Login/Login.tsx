@@ -18,9 +18,7 @@ const Login: React.FC<LoginProps> = (props) => {
       <section>
         <SongNav />
       </section>
-      <section>
-        <BusinessCard />
-      </section>
+      <section>{/* <BusinessCard /> */}</section>
       <section>{cardItem}</section>
       <SongPlayer />
     </>

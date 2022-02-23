@@ -15,27 +15,28 @@ const database_1 = require("./database/database");
 const selenium_webdriver_1 = require("selenium-webdriver");
 const chrome_1 = require("selenium-webdriver/chrome");
 const serviceAccount = require("../config/firebaseconfig.json");
-const caps = new selenium_webdriver_1.Capabilities();
-caps.setPageLoadStrategy("eager");
-caps.setAcceptInsecureCerts(true);
-const builder = new selenium_webdriver_1.Builder().withCapabilities(caps).forBrowser("chrome");
-// builder.withCapabilities(chromeDesktop);
-try {
-    let options = builder.getChromeOptions();
-    if (options === null) {
-        const options2 = new chrome_1.Options();
-        options2.addArguments("ignore-certificate-errors");
-        options2.setAcceptInsecureCerts(true);
-        // options2.addArguments("--blink-settings=imagesEnabled=false");
-        options = options2;
+const getNewDriver = () => {
+    const caps = new selenium_webdriver_1.Capabilities();
+    caps.setPageLoadStrategy("eager");
+    caps.setAcceptInsecureCerts(true);
+    const builder = new selenium_webdriver_1.Builder().withCapabilities(caps).forBrowser("chrome");
+    try {
+        let options = builder.getChromeOptions();
+        if (options === null) {
+            const options2 = new chrome_1.Options();
+            options2.addArguments("ignore-certificate-errors");
+            options2.setAcceptInsecureCerts(true);
+            options = options2;
+        }
+        builder.setChromeOptions(options);
     }
-    builder.setChromeOptions(options);
-}
-catch (error) {
-    console.log(error);
-}
-const driver = builder.build();
-const TAG = "APP.js";
+    catch (error) {
+        console.log(error);
+    }
+    const driver = builder.build();
+    return driver;
+};
+const driver = getNewDriver();
 class App {
     constructor(serialToken) {
         this.started = false;
@@ -115,7 +116,7 @@ class App {
                 console.log(error);
             }
             try {
-                const newDriver = builder.build();
+                const newDriver = getNewDriver();
                 this.browserDriver = newDriver;
                 yield newDriver.manage().deleteAllCookies();
                 this.seleniumActions.insertGreenScreen("Hola, No cierres esta ventana att MysoftSolutions");
